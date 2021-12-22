@@ -12,33 +12,48 @@ function App() {
   const { handleChange, values, errors, handleSubmit } = useForm(formLogin);
 
   return (
-    <div className="App">
+    <div className="app">
       <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          name="email"
-          placeholder="E-mail"
-          onChange={handleChange}
-        />
-        {errors.email && <h3>{errors.email}</h3>}
-        <input
-          minLength="8"
-          type="password"
-          name="password"
-          placeholder="password"
-          onChange={handleChange}
-        />
-        {errors.password && <h3>{errors.password}</h3>}
-        <input
-          type="text"
-          minLength="5"
-          required
-          name="username"
-          placeholder="username"
-          onChange={handleChange}
-        />
-        {errors.username && <h3>{errors.username}</h3>}
-        <input type="submit" value="Submit" className="submit" />
+        <h1>Register</h1>
+        <div className="formInput">
+          <label>Username</label>
+          <input
+            type="text"
+            minLength="5"
+            name="username"
+            placeholder="username"
+            onChange={handleChange}
+            autoComplete="off"
+            required
+          />
+          {errors.username && <span>{errors.username}</span>}
+        </div>
+        <div className="formInput">
+          <label>Email ID</label>
+          <input
+            type="email"
+            name="email"
+            placeholder="E-mail"
+            onChange={handleChange}
+            autoComplete="off"
+            required
+          />
+          {errors.email && <span>{errors.email}</span>}
+        </div>
+        <div className="formInput">
+          <label>Password</label>
+          <input
+            minLength="8"
+            type="password"
+            name="password"
+            placeholder="password"
+            onChange={handleChange}
+            required
+          />
+          {errors.password && <span>{errors.password}</span>}
+        </div>
+        {/* <input type="submit" value="Submit" className="submit" /> */}
+        <button>Submit</button>
       </form>
     </div>
   );
